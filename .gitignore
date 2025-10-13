@@ -1,0 +1,69 @@
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+build/
+
+# STM32CubeMX
+*.ioc
+
+# VSCode
+.vscode/
+
+# Compilers
+*.o
+*.obj
+*.elf
+*.bin
+*.hex
+*.map
+*.d
+*.lst
+*.log
+*.dep
+*.su
+*.suo
+*.idb
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.exe
+*.dll
+*.a
+*.so
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.user
+*.DS_Store
+
+# Generated
+*.log
+*.pyc
+__pycache__/
+
+# Other
+*.orig
+*.patch
+*.diff
+*.gz
+*.zip
+*.tar
+*.tgz
+*.7z
+*.rar
+*.bak
+*.tmp
+*.old
+*.save
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.user
+*.DS_Store

@@ -163,7 +163,17 @@ Error_Handler();
   while (1)
   {
     /* USER CODE END WHILE */
-
+    // Поработаем с памятью
+    uint32_t *ptr = (uint32_t *)0xC0000000; // Адрес внешней SRAM
+    for (uint32_t i = 0; i < 256; i++) {
+        ptr[i] = i; // Запись данных
+    }
+    for (uint32_t i = 0; i < 256; i++) {
+        if (ptr[i] != i) {
+            Error_Handler(); // Ошибка, если данные не совпадают
+        }
+    }
+    HAL_Delay(1000); // Задержка 1 секунда
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

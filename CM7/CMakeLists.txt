@@ -79,6 +79,17 @@ if((CMAKE_C_STANDARD EQUAL 90) OR (CMAKE_C_STANDARD EQUAL 99))
     message(ERROR "Generated code requires C11 or higher")
 endif()
 
+# Generate .hex file after build
+find_program(CMAKE_OBJCOPY arm-none-eabi-objcopy)
+if(CMAKE_OBJCOPY)
+    add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_OBJCOPY} -O ihex $<TARGET_FILE:${CMAKE_PROJECT_NAME}> ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.hex
+        COMMENT "Generating HEX file"
+    )
+else()
+    message(WARNING "arm-none-eabi-objcopy not found. HEX file will not be generated.")
+endif()
+
 
 
 

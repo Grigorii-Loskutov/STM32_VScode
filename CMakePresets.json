@@ -10,40 +10,98 @@
             "cacheVariables": {}
         },
         {
-            "name": "Debug",
+            "name": "Root-Debug",
             "inherits": "default",
+            "displayName": "Root Debug",
+            "binaryDir": "${sourceDir}/build/Root-Debug",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
-            "name": "Release",
+            "name": "Root-Release",
             "inherits": "default",
+            "displayName": "Root Release",
+            "binaryDir": "${sourceDir}/build/Root-Release",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
         },
         {
-            "name": "Configure preset using toolchain file",
-            "displayName": "Configure preset using toolchain file",
-            "description": "Sets Ninja generator, build and install directory",
+            "name": "CM7-Debug",
+            "displayName": "CM7 Debug (arm-none-eabi)",
+            "description": "Configure and build CM7 with arm-none-eabi toolchain",
             "generator": "Ninja",
+            "binaryDir": "${sourceDir}/CM7/build",
+            "toolchainFile": "${sourceDir}/gcc-arm-none-eabi.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "CM4-Debug",
+            "displayName": "CM4 Debug (arm-none-eabi)",
+            "description": "Configure and build CM4 with arm-none-eabi toolchain",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/CM4/build",
+            "toolchainFile": "${sourceDir}/gcc-arm-none-eabi.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Debug",
+            "displayName": "GCC 13.3.1 arm-none-eabi",
+            "description": "Using compilers: C = C:\\ST\\STM32CubeCLT_1.19.0\\GNU-tools-for-STM32\\bin\\arm-none-eabi-gcc.exe, CXX = C:\\ST\\STM32CubeCLT_1.19.0\\GNU-tools-for-STM32\\bin\\arm-none-eabi-g++.exe",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug",
-                "CMAKE_TOOLCHAIN_FILE": "",
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+                "CMAKE_C_COMPILER": "C:/ST/STM32CubeCLT_1.19.0/GNU-tools-for-STM32/bin/arm-none-eabi-gcc.exe",
+                "CMAKE_CXX_COMPILER": "C:/ST/STM32CubeCLT_1.19.0/GNU-tools-for-STM32/bin/arm-none-eabi-g++.exe",
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Debug",
+            "displayName": "GCC 13.3.1 arm-none-eabi",
+            "description": "Using compilers: C = C:\\ST\\STM32CubeCLT_1.19.0\\GNU-tools-for-STM32\\bin\\arm-none-eabi-gcc.exe, CXX = C:\\ST\\STM32CubeCLT_1.19.0\\GNU-tools-for-STM32\\bin\\arm-none-eabi-g++.exe",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+                "CMAKE_C_COMPILER": "C:/ST/STM32CubeCLT_1.19.0/GNU-tools-for-STM32/bin/arm-none-eabi-gcc.exe",
+                "CMAKE_CXX_COMPILER": "C:/ST/STM32CubeCLT_1.19.0/GNU-tools-for-STM32/bin/arm-none-eabi-g++.exe",
+                "CMAKE_BUILD_TYPE": "Debug"
             }
         }
     ],
     "buildPresets": [
         {
-            "name": "Debug",
-            "configurePreset": "Debug"
+            "name": "CM7-Build",
+            "configurePreset": "CM7-Debug"
         },
         {
-            "name": "Release",
-            "configurePreset": "Release"
+            "name": "CM4-Build",
+            "configurePreset": "CM4-Debug"
+        },
+        {
+            "name": "Root-Build-Debug",
+            "configurePreset": "Root-Debug"
+        },
+        {
+            "name": "Root-Build-Release",
+            "configurePreset": "Root-Release"
+        },
+        {
+            "name": "Debug",
+            "description": "",
+            "displayName": "",
+            "configurePreset": "CM7-Debug"
+        },
+        {
+            "name": "Debug",
+            "description": "",
+            "displayName": "",
+            "configurePreset": "CM7-Debug"
         }
     ]
 }
